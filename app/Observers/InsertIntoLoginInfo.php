@@ -18,8 +18,8 @@ class InsertIntoLoginInfo
     {
         if ($usertype->user_type == 'admin') {
                $is_admin=1;
-               $is_parent=0;
-               $is_teacher=0;
+               //$is_parent=0;
+              // $is_teacher=0;
             //
             $password = bcrypt('123456');
                $post = new User;
@@ -28,11 +28,6 @@ class InsertIntoLoginInfo
                $post->password =$password;
                $post->username = $usertype->user_phone;
                $post->is_admin = $is_admin;
-            //   $post->user_age = $usertype->user_age;
-            //   $post->user_dp = $usertype->user_dp;
-            //   $post->user_phoneno=$usertype->user_phone;
-            //   $post->user_address= $usertype->address;
-            //   //$post->
               $post->save();
         }
         if ($usertype->user_type == 'teacher') {
@@ -45,13 +40,22 @@ class InsertIntoLoginInfo
             $post->login_userid = $usertype->id;
             $post->name = $usertype->user_fullname;
             $post->password =$password;
+            $post->is_teacher=1;
             $post->username = $usertype->user_phone;
-            $post->is_teacher = 1;
-            //   $post->user_age = $usertype->user_age;
-            //   $post->user_dp = $usertype->user_dp;
-            //   $post->user_phoneno=$usertype->user_phone;
-            //   $post->user_address= $usertype->address;
-            //   //$post->
+            $post->save();
+        }
+        if ($usertype->user_type == 'parent') {
+            //$is_admin=1;
+            // $is_parent=0;
+            //$is_teacher=0;
+            //
+            $password = bcrypt('123456');
+            $post = new User;
+            $post->login_userid = $usertype->id;
+            $post->name = $usertype->user_fullname;
+            $post->password =$password;
+            $post->is_parent=1;
+            $post->username = $usertype->user_phone;
             $post->save();
         }
     }

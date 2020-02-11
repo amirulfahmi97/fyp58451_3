@@ -10,7 +10,28 @@
 @section('content')
 @include('teacher.layout.header')
 
-teacher login page
+
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+Welcome : {{ Auth::user()->name }}
+
+
+
+
+
+
+</div>
+<!-- /#page-content-wrapper -->
+
+</div>
+@if (\Session::has('message'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('message') !!}</li>
+        </ul>
+    </div>
+@endif
 
 <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>

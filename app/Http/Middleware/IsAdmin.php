@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Redirect;
 
 class IsAdmin
 {
@@ -15,6 +16,12 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(auth()->user()->is_admin == 1){
+            return $next($request);
+        }
+        echo "no cannot here";
+        return redirect()->back()->with('message', 'no cannot do that here');
+        //return redirect::back()->withErrors(['message','no cannot do that here']);
+        // redirect('/userlogin')->with('error','You have no admin access');
     }
 }
