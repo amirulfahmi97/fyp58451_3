@@ -10921,17 +10921,8 @@ body {
   transition: margin 0.25s ease-out;
 }
 
-#sidebar-wrapper .sidebar-heading {
-  padding: 0.875rem 1.25rem;
-  font-size: 1.2rem;
-}
-
 #sidebar-wrapper .list-group {
   width: 15rem;
-}
-
-#page-content-wrapper {
-  min-width: 100vw;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -10944,7 +10935,6 @@ body {
   }
 
   #page-content-wrapper {
-    min-width: 0;
     width: 100%;
   }
 
@@ -10954,8 +10944,27 @@ body {
 }
 
 .div-push {
-  width: 10px;
+  width: 20px;
   height: 100vh;
   background: red;
+}
+
+.form-control-inline {
+  min-width: 0;
+  width: auto;
+  display: inline;
+}
+
+#sidebar-wrapper .top-heading {
+  align-items: center;
+  padding-left: 60px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.new-form-group {
+  margin-top: 10px;
+  color: #1f6fb2 !important;
 }
 

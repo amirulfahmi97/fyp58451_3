@@ -24,8 +24,9 @@ class InsertIntoSeperateTable
             $post->user_fullname = $usertype->user_fullname;
             $post->user_age = $usertype->user_age;
             $post->user_dp = $usertype->user_dp;
-            $post->user_phoneno=$usertype->user_phone;
+            $post->user_phone=$usertype->user_phone;
             $post->user_address= $usertype->address;
+            $post->user_email= $usertype->user_email;
             //$post->
             $post->save();
         }
@@ -36,7 +37,7 @@ class InsertIntoSeperateTable
             $post->user_fullname = $usertype->user_fullname;
             $post->user_age = $usertype->user_age;
             $post->user_dp = $usertype->user_dp;
-            $post->user_phoneno=$usertype->user_phone;
+            $post->user_phone=$usertype->user_phone;
             $post->user_address= $usertype->address;
             //$post->
             $post->save();
@@ -48,7 +49,7 @@ class InsertIntoSeperateTable
             $post->user_fullname = $usertype->user_fullname;
             $post->user_age = $usertype->user_age;
             $post->user_dp = $usertype->user_dp;
-            $post->user_phoneno=$usertype->user_phone;
+            $post->user_phone=$usertype->user_phone;
             $post->user_address= $usertype->address;
             //$post->
             $post->save();

@@ -20,11 +20,11 @@ Welcome : {{ Auth::user()->name }}
 
 
 
-
+</div>
 </div>
 <!-- /#page-content-wrapper -->
 
-</div>
+
 @if (\Session::has('message'))
     <div class="alert alert-success">
         <ul>
@@ -32,8 +32,9 @@ Welcome : {{ Auth::user()->name }}
         </ul>
     </div>
 @endif
-
+@include('teacher.layout.footer')
 <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
-@include('teacher.layout.footer')
+
 @endsection
+

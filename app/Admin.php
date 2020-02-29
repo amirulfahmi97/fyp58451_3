@@ -12,7 +12,7 @@ class Admin extends Model
         'user_fullname',
         'user_address',
         'user_nric',
-        'user_phoneno',
+        'user_phone',
         'user_age',
         'user_dp',
     ];
