@@ -80,7 +80,7 @@
 
 
                         <div class="float-left">
-                            <form action="{{ route('updateprofile', $userfile->user_id)  }}" method="post">
+                            <form action="{{ route('updateprofile', $userfile->user_id)  }}"  method="post">
                                 {{csrf_field() }}
                                 @method('PATCH')
 
@@ -131,11 +131,13 @@
                                     </div>
 
                                <div class="form-group">
-                                        <button type="submit" id="button" class="btn btn-success" name="submit"> Submit </button>
+                                        <button type="submit" id="button" class="btn btn-success" name="manageprofile"> Submit </button>
                                     </div>
                                 </div>
                                 </div>
                             </div>
+                            </form>
+
                                 <div class="row-cols-md-1 bg-info col-12">
                                     <div class="form-group" >
                                         <label> List of subject teach </label>
@@ -150,7 +152,7 @@
                                         </button>
 
 
-                                        <!--subject model start -->
+
                                         <div class="modal fade" id="subject-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -160,27 +162,29 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form method="post" id="subject-form">
-                                                        {{csrf_field()}}
+
+                                                    <form method="post" action="{{ route('updateprofile', $userfile->user_id)  }}" id="subject-form">
+                                                        {{csrf_field() }}
+                                                        @method('PATCH')
                                                         <div class="modal-body">
                                                             <div class="form-group">
 
-                                                                <input type="hidden" class="form-control-sm" readonly name="user_id" id="user_id" value="{{Auth::user()->login_userid}}">
+                                                                <input type="hidden" name='teacherID' class="form-control-sm" readonly name="user_id" id="user_id" value="{{Auth::user()->login_userid}}">
                                                             </div>
 
                                                             <div class="form-group">
-                                                                <input type="hidden" name="_token" id="csrf" value="{{Session::token()}}">
+
                                                                 <label for="subjectname">Subject Name:</label>
-                                                                <input type="text" class="form-control" id="subjectname" placeholder="name of the Subject" name="subjectname">
+                                                                <input type="text" class="form-control" id="subjectname" placeholder="name of the Subject" name="subjectName">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="subjectyear">Subject Year:</label>
-                                                                <input type="number" class="form-control" id="subjectyear" placeholder="Year of the subject" name="subjectyear">
+                                                                <input type="number" class="form-control" id="subjectyear" placeholder="Year of the subject" name="subjectYear">
                                                             </div>
 
                                                             <div class="modal-footer">
-                                                                <input type="hidden" name="button_action" id="button_action" value="insert" />
-                                                                <input type="submit" name="insertSubject" id="insertSubject" value="Insert" class="btn btn-info" />
+
+                                                                <input type="submit" name="insertsubject" id="insertSubject" value="insertsubject" class="btn btn-info" />
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                             </div>
                                                     </form>
@@ -222,49 +226,49 @@
         }
 //test//
 
-
-        $(document).ready(function () {
-            $('#subject-form').on('insertSubject',function () {
-                var userID = $('#user_id').val();
-                var subjectname = $('#subjectname').val();
-                var subjectyear = $('#subjectyear').val();
-                if(subjectname!=="" && subjectyear !==""){
-                    $.ajax({
-                        url:"{{route('insertsubject')}}",
-                        method:"PATCH",
-
-                        data:{
-                            _token:$("#csrf").val(),
-                            type:1,
-                            teacherID:userID,
-                            subjectName:subjectname,
-                            subjectYear:subjectyear
-
-                        },
-                        cache:false,
-                        success:function (dataResult) {
-                        console.log(dataResult);
-                        var dataResult = JSON.parse(dataResult);
-                        if(dataResult.statusCode === 200){
-                            window.location = "/insertsubject"
-                        }
-                        else if(dataResult.statusCOde ===201)
-                            {
-                            alert("error occured !");
-
-                        }
-                        }
-
-                    })
-                }
-                else{
-                    alert('FILL IN!');
-                }
-
-            });
-
-        });
-    </script>
+//
+//        $(document).ready(function () {
+//            $('#subject-form').on('insertSubject',function () {
+//                var userID = $('#user_id').val();
+//                var subjectname = $('#subjectname').val();
+//                var subjectyear = $('#subjectyear').val();
+//                if(subjectname!=="" && subjectyear !==""){
+//                    $.ajax({
+//                        url:"{{route('insertsubject')}}",
+//                        method:"PATCH",
+//
+//                        data:{
+//                            _token:$("#csrf").val(),
+//                            type:1,
+//                            teacherID:userID,
+//                            subjectName:subjectname,
+//                            subjectYear:subjectyear
+//
+//                        },
+//                        cache:false,
+//                        success:function (dataResult) {
+//                        console.log(dataResult);
+//                        var dataResult = JSON.parse(dataResult);
+//                        if(dataResult.statusCode === 200){
+//                            window.location = "/insertsubject"
+//                        }
+//                        else if(dataResult.statusCOde ===201)
+//                            {
+//                            alert("error occured !");
+//
+//                        }
+//                        }
+//
+//                    })
+//                }
+//                else{
+//                    alert('FILL IN!');
+//                }
+//
+//            });
+//
+//        });
+   </script>
 
     @if (\Session::has('message'))
         <div class="alert alert-success">

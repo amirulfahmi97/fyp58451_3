@@ -21,7 +21,8 @@ class TeacherFile extends Model
     public function users_file(){
         return $this->hasOne('App\Users_File');
     }
-    public function subjectFIle(){
-        //return $this->hasOne()
+
+    public function subjectfiles(){
+        return $this->hasOne('App\SubjectFile');
     }
 }

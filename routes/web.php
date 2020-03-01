@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return view('global.home');
 });
+
+
+Route::get('/test', function () {
+    return view('angularTest.index');
+});
 Route::get('/userlogin','GlobalLoginController@showloginform')->name('globalloginform');
 Route::post('/userlogin','GlobalLoginController@loginform')->name('globalsubmitlogin');
 Auth::routes();

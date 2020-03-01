@@ -16,13 +16,17 @@ class SubjectController extends Controller
         //
     }
     public function create(Request $request){
-        $request->validate([
-            'teacherID'=>'required',
-            'subjectName'=>'required',
-            'subjectYear'=>'required',
+        switch ($request->input('action')){
+            case 'insertsubject':
+                $request->validate([
+                    'teacherID'=>'required',
+                    'subjectName'=>'required',
+                    'subjectYear'=>'required',
 
-        ]);
-        SubjectFile::create($request->all());
-        return json_encode(array("statusCode"=>200));
+                ]);
+                SubjectFile::create($request->all());
+        }
+
+
     }
 }

@@ -9,8 +9,8 @@ class HomeworkFile extends Model
 
 
 
-public function homeworkofSubject(){
-    return $this->belongsToMany('App\SubjectHomework');
+public function subjectfiles(){
+    return $this->belongsToMany('App\SubjectFile');
 }
 
 }

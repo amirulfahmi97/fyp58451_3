@@ -6,10 +6,12 @@ use App\TeacherFile;
 use App\TeacherFile2;
 use App\User;
 use App\Users_File;
+use App\SubjectFile;
 use http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
-use Users;
+use Illuminate\Support\Facades\DB;
+
 
 class TeacherController extends Controller
 {
@@ -28,33 +30,53 @@ class TeacherController extends Controller
     }
 
     public function updateprofile(Request $request,$user_id){
-    echo "test";
-    echo $user_id;
-    echo $request->name;
-        $request->validate([
-            'name' => 'required',
-         //   'age' => 'required',
-            'address' => 'required',
 
-        ]);
-        $update = [
-           // 'user_dp'=> $fileNameToStore,
-            'user_fullname' => $request->name,
-           // 'user_age' => $request->age,
-            'user_address'=>$request->address,
-            //'user_nric'=>$request->nric,
-            'user_phone'=> $request->phonenumber,
-           // 'user_type'=>$request->usertype,
-            'user_email'=>$request->user_email,
-        ];
-        $update2=['name'=>$request->name,];
-       // $post = TeacherFile::find($user_id);
-        //$post->update($update);
-        TeacherFile::where('user_id',$user_id)->update($update);
-        Users_File::where('id',$user_id)->update($update);
-        User::where('login_userid',$user_id)->update($update2);
-        return back()->with('success', 'Record updated successfully');
+        if($request->has('manageprofile')){
+            $request->validate([
+                'name' => 'required',
+                //   'age' => 'required',
+                'address' => 'required',
 
+            ]);
+            $update = [
+                // 'user_dp'=> $fileNameToStore,
+                'user_fullname' => $request->name,
+                // 'user_age' => $request->age,
+                'user_address'=>$request->address,
+                //'user_nric'=>$request->nric,
+                'user_phone'=> $request->phonenumber,
+                // 'user_type'=>$request->usertype,
+                'user_email'=>$request->user_email,
+            ];
+            $update2=['name'=>$request->name,];
+            // $post = TeacherFile::find($user_id);
+            //$post->update($update);
+            TeacherFile::where('user_id',$user_id)->update($update);
+            Users_File::where('id',$user_id)->update($update);
+            User::where('login_userid',$user_id)->update($update2);
+            return back()->with('success', 'Record updated successfully');
+
+
+        }
+        elseif ($request->has('insertsubject')){
+            echo "test";
+             $result = DB::table('teacher_files')->select('id')->where('user_id',$user_id)->first();
+            echo $teacherid = $result->id;
+             $request->validate([
+                'teacherID'=>'required',
+                'subjectName'=>'required',
+                'subjectYear'=>'required',
+
+            ]);
+            $post = new SubjectFile;
+            $post->teacherID = $teacherid;
+            $post->subjectName =$request->input('subjectName');
+            $post->subjectYear = $request->input('subjectYear');
+            $post->save();
+
+            return back()->with('success', 'succesfull update');
+
+        }
 
     }
 
