@@ -16,6 +16,7 @@ class InsertIntoLoginInfo
      */
     public function created(Users_File $usertype)
     {
+        echo "testing wan tu teri";
         if ($usertype->user_type == 'admin') {
                $is_admin=1;
                //$is_parent=0;
@@ -41,6 +42,7 @@ class InsertIntoLoginInfo
             $post->name = $usertype->user_fullname;
             $post->password =$password;
             $post->is_teacher=1;
+           // $post->user_email=$usertype->user
             $post->username = $usertype->user_phone;
             $post->save();
         }

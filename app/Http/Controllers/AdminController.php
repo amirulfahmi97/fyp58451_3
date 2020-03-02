@@ -19,6 +19,13 @@ class AdminController extends Controller
         return view('admin.dashboard');
 
     }
+    public function showuser(){
+    return 'hello';
+   // $task = request()->user()->tasks;
+    //return response()->json([
+    //    'tasks'=>$task,
+   // ],200);
+    }
     public function create(){
         return view('admin.add-user');
     }
@@ -32,14 +39,18 @@ class AdminController extends Controller
         if($request->hasFile('user_dp')) {
             // Get filename with extension
             $filenameWithExt = $request->file('user_dp')->getClientOriginalName();
+            echo $filenameWithExt;
             // Get just filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            echo $filename;
             // Get just ext
             $extension = $request->file('user_dp')->getClientOriginalExtension();
+            echo $extension;
             //Filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            echo $fileNameToStore;
             // Upload Image
-            $path = $request->file('user_dp')->    storeAs('public/images', $fileNameToStore);
+            $path = $request->file('user_dp')->storeAs('public/images', $fileNameToStore);
         } else {
             $fileNameToStore = 'noimage.jpg';
         }
@@ -47,7 +58,7 @@ class AdminController extends Controller
 
         $post = new Users_File;
         $post->user_fullname = $request->input('name');
-        $post->address = $request->input('address');
+        $post->user_address = $request->input('address');
         $post->user_nric = $request->input('nric');
         $post->user_phone = $request->input('phonenumber');
         $post->user_type = $request->input('usertype');
@@ -59,7 +70,6 @@ class AdminController extends Controller
         return redirect('/admin/create');
 
     }
-
     public function show($id){
 
     }
@@ -108,7 +118,7 @@ class AdminController extends Controller
             'user_dp'=> $fileNameToStore,
             'user_fullname' => $request->name,
             'user_age' => $request->age,
-            'address'=>$request->address,
+            'user_address'=>$request->address,
             'user_nric'=>$request->nric,
             'user_phone'=> $request->phonenumber,
             'user_type'=>$request->usertype,

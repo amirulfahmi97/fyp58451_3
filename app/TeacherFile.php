@@ -12,12 +12,17 @@ class TeacherFile extends Model
         'user_fullname',
         'user_address',
         'user_nric',
-        'user_phoneno',
+        'user_phone',
         'user_age',
         'user_dp',
     ];
 
+
     public function users_file(){
         return $this->hasOne('App\Users_File');
+    }
+
+    public function subjectfiles(){
+        return $this->hasOne('App\SubjectFile');
     }
 }
