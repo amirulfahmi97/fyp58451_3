@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class SubjectFile extends Model
 {
     protected $table ='subject_files';
-    protected $fillable = ['teacherID','subjectName','subjectYear'];
+    protected $fillable = ['teacherID','subjectCode','subjectName','subjectYear'];
 
 
 
