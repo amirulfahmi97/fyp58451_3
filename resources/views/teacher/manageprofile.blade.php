@@ -139,14 +139,13 @@
 
                     <div class="row-cols-md-1 bg-info col-12">
                         <div class="form-group" ><label> List of subject teach </label>
-                           @foreach($listsubject as $listsubject )
+                            @foreach($teachersubject as $teachersubject )
+                                
+                                <ul class="list-group">
+                                    <li class="list-group-item"><a href="{{route('subjectpages',['id'=>Crypt::encrypt($teachersubject->teacherID),'code'=>$teachersubject->subjectCode])}}"> {{$teachersubject->subjectName}} </a></li>
 
-
-
-                            <ul class="list-group">
-                                <li class="list-group-item"> {{$listsubject->subjectName}}</li>
-                            </ul>
-                               @endforeach
+                                    @endforeach
+                                </ul>
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#subject-modal">
                                 Add new subject
                             </button>

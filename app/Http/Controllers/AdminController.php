@@ -57,8 +57,9 @@ class AdminController extends Controller
 
 
         $post = new Users_File;
+        $address = $request->input('address').$request->input('address2');
         $post->user_fullname = $request->input('name');
-        $post->user_address = $request->input('address');
+        $post->user_address =$address;
         $post->user_nric = $request->input('nric');
         $post->user_phone = $request->input('phonenumber');
         $post->user_type = $request->input('usertype');

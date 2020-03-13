@@ -27,9 +27,19 @@ class TeacherController extends Controller
         //$user_id = Crypt::decrypt($user_id);
         $userfile= TeacherFile::where('user_id',$user_id)->first();
         $username= User::where('login_userid',$user_id)->first();
-        $listsubject = SubjectFile::all();
+       // $userfile= TeacherFile::where('user_id',$user_id)->first();
+        $teacherid = DB::table('teacher_files')->where('user_id',$user_id)->first();
+        $teacherid = $teacherid->id;
 
-        return view('teacher.manageprofile')->with(compact('userfile','username','listsubject'));
+     $listsubject = SubjectFile::all();
+    //    $teachersubject = SubjectFile::where('teacherID',$teacherid)->first();
+        //echo $teachersubject;
+       // echo $listsubject
+    $teachersubject = DB::table('subject_files')->where('teacherID',$teacherid)->get();
+     //echo $teachersubject->subjectName;
+
+        //echo "</br/>";
+        return view('teacher.manageprofile')->with(compact('userfile','username','listsubject','teachersubject'));
     }
 
     public function updateprofile(Request $request,$user_id){
