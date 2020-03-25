@@ -140,9 +140,13 @@
                     <div class="row-cols-md-1 bg-info col-12">
                         <div class="form-group" ><label> List of subject teach </label>
                             @foreach($teachersubject as $teachersubject )
-                                
+
                                 <ul class="list-group">
-                                    <li class="list-group-item"><a href="{{route('subjectpages',['id'=>Crypt::encrypt($teachersubject->teacherID),'code'=>$teachersubject->subjectCode])}}"> {{$teachersubject->subjectName}} </a></li>
+                                    <li class="list-group-item">
+                                        <button type="button" class="btn " data-toggle="modal" data-target="#menupage"> {{$teachersubject->subjectName}}</button>
+                                        <a href="{{route('subjectpages',['id'=>Crypt::encrypt($teachersubject->teacherID),'code'=>$teachersubject->subjectCode])}}"> {{$teachersubject->subjectName}} </a>
+                                    {{$teachersubject->id}}
+                                    </li>
 
                                     @endforeach
                                 </ul>
@@ -228,50 +232,6 @@
             document.getElementById("button").disabled = false;
 
         }
-        //test//
-
-        //
-        //        $(document).ready(function () {
-        //            $('#subject-form').on('insertSubject',function () {
-        //                var userID = $('#user_id').val();
-        //                var subjectname = $('#subjectname').val();
-        //                var subjectyear = $('#subjectyear').val();
-        //                if(subjectname!=="" && subjectyear !==""){
-        //                    $.ajax({
-        //                        url:"{{route('insertsubject')}}",
-        //                        method:"PATCH",
-        //
-        //                        data:{
-        //                            _token:$("#csrf").val(),
-        //                            type:1,
-        //                            teacherID:userID,
-        //                            subjectName:subjectname,
-        //                            subjectYear:subjectyear
-        //
-        //                        },
-        //                        cache:false,
-        //                        success:function (dataResult) {
-        //                        console.log(dataResult);
-        //                        var dataResult = JSON.parse(dataResult);
-        //                        if(dataResult.statusCode === 200){
-        //                            window.location = "/insertsubject"
-        //                        }
-        //                        else if(dataResult.statusCOde ===201)
-        //                            {
-        //                            alert("error occured !");
-        //
-        //                        }
-        //                        }
-        //
-        //                    })
-        //                }
-        //                else{
-        //                    alert('FILL IN!');
-        //                }
-        //
-        //            });
-        //
-        //        });
     </script>
 
     @if (\Session::has('message'))

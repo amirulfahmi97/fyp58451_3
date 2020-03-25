@@ -15,6 +15,6 @@ class SubjectFile extends Model
 
     }
     public function homeworkfiles(){
-        return $this->belongsToMany('App\HomeworkFile');
+        return $this->hasOne('App\HomeworkFile');
     }
 }
