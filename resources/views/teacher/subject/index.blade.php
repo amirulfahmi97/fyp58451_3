@@ -1,12 +1,24 @@
 @extends('teacher.layout.layout')
-@section('title','Homepage')
+@section('title','Manage Subject')
 @section('script')
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'>
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('js/app.js')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/8gfwo746kb40xjmo85h8ds0d91mb3c1f6ps62vtas8skk2fk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
 
+    tinymce.init({
+        selector:'#textdescription',
+        //selector: 'textarea',
+        plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+        toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+        toolbar_mode: 'floating',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+    });
+</script>
 @endsection
 
 @section('content')
@@ -51,7 +63,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <input type='text' class="form-control" id="description" name="description">
+                                <input type="text" id="textdescription" class="form-control" id="description" name="description">
                             </div>
                             <div class="form-group">
                                 <label for="type">Accept Submission ? </label>

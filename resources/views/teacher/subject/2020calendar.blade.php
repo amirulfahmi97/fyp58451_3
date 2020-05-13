@@ -60,26 +60,50 @@ function refactorHomework(homeworkString){
         var d = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
         var a = d.getMonth();
 
+        iddiv.setAttribute("class","testname");
+        homeworkdiv.className="bigdiv";
+        // contentdiv.innerHTML="Description";
+        div3.style.color="blue";
+
+        homeworkdiv.appendChild(br);
+        homeworkdiv.appendChild(iddiv);
+        homeworkdiv.appendChild(contentdiv);
+        homeworkdiv.appendChild(homeworkDateCreate);
+        homeworkdiv.appendChild(monthCreated);
+
+
+
+
         switch (a) {
             case 0:
-                //
+                monthCreated.innerHTML="January";
+                monthCreated.style.color="red";
+                var jan = document.getElementById("jan");
+                jan.appendChild(homeworkdiv);
                 break;
             case 1:
                 //
                 break;
             case 2:
-                //
+                monthCreated.innerHTML = "month created is March";
+                var march = document.getElementById("march");
+                march.appendChild(homeworkdiv);
                 break;
             case 3:
-                //
+                monthCreated.innerHTML = "month created is April";
+                var april = document.getElementById("april");
+                april.appendChild(homeworkdiv);
                 break;
             case 4:
-                //
+
+                monthCreated.innerHTML = "month created is on May";
+                var may = document.getElementById("may");
+                may.appendChild(homeworkdiv);
                 break;
             case 5:
                 //
                 break;
-            case 6:
+            case 6:``
                 //
                 break;
             case 7:
@@ -97,56 +121,11 @@ function refactorHomework(homeworkString){
             case 11:
                 //
                 break;
-        }
-        iddiv.setAttribute("class","testname");
-        homeworkdiv.className="bigdiv";
-        // contentdiv.innerHTML="Description";
-        div3.style.color="blue";
+            default:
 
-        if(a === 0)
-        {
-            monthCreated.innerHTML="January";
-            homeworkdiv.appendChild(br);
-            homeworkdiv.appendChild(iddiv);
-            homeworkdiv.appendChild(contentdiv);
-            homeworkdiv.appendChild(homeworkDateCreate);
-            homeworkdiv.appendChild(monthCreated);
-            var jan = document.getElementById("jan");
-            jan.appendChild(homeworkdiv);
-
+                div3.appendChild(homeworkdiv);
+                monthCreated.innerHTML="besides that";
         }
-       else if ( a === 2){
-            monthCreated.innerHTML = "month created is March";
-            homeworkdiv.appendChild(br);
-            homeworkdiv.appendChild(iddiv);
-            homeworkdiv.appendChild(contentdiv);
-            homeworkdiv.appendChild(homeworkDateCreate);
-            homeworkdiv.appendChild(monthCreated);
-            var march = document.getElementById("march");
-            march.appendChild(homeworkdiv);
-
-        }
-        else if (a === 3)
-        {
-            monthCreated.innerHTML = "month created is April";
-            homeworkdiv.appendChild(br);
-            homeworkdiv.appendChild(iddiv);
-            homeworkdiv.appendChild(contentdiv);
-            homeworkdiv.appendChild(homeworkDateCreate);
-            homeworkdiv.appendChild(monthCreated);
-            var april = document.getElementById("april");
-            april.appendChild(homeworkdiv);
-        }
-         else {
-            homeworkdiv.appendChild(br);
-            homeworkdiv.appendChild(iddiv);
-            homeworkdiv.appendChild(contentdiv);
-            homeworkdiv.appendChild(homeworkDateCreate);
-            homeworkdiv.appendChild(monthCreated);
-
-            div3.appendChild(homeworkdiv);
-             monthCreated.innerHTML="besides that";
-         }
 
 
 
@@ -224,8 +203,10 @@ function refactorHomework(homeworkString){
 
     <div class="row border border-dark border-bottom-0 rounded m-2 mb-4 pb-4">
         <div class="col-md-6">
+            <div id="may">
             <h3 class=" pt-3 pb-3">May</h3>
             <a>test</a>
+            </div>
         </div>
     </div>
 
