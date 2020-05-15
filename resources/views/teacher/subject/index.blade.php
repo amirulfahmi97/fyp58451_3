@@ -11,12 +11,7 @@
 
     tinymce.init({
         selector:'#textdescription',
-        //selector: 'textarea',
-        plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-        toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-        toolbar_mode: 'floating',
-        tinycomments_mode: 'embedded',
-        tinycomments_author: 'Author name',
+
     });
 </script>
 @endsection
@@ -38,9 +33,9 @@
         <button type="button" class="button btn btn-outline-info" data-toggle="modal" data-target="#insert-homework" >
             Add new homework
         </button>
-
+        <button type="button" class="btn btn-info" onclick="" id="editposts"> Toggle edit posts</button>
         <div class="modal fade" id="insert-homework" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Add new subject</h5>
@@ -107,5 +102,17 @@
     @include('teacher.layout.footer')
     <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+            $("#editposts").click(function (){
+                $(this).hide();
+            });
+
+        });
+
+    </script>
 
 @endsection

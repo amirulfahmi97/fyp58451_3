@@ -1,9 +1,9 @@
 
-<p id="demo"></p>
+<!-- --><p id="demo"></p>
 
-Looping ID<p id="id1" ></p>
-TEST ID HOMEWORK<p id="test"></p>
-TOTAL OBJECT<p id="count"></p>
+<p id="id1" ></p>
+<p id="test"></p>
+<p id="count"></p>
 <div id="div1"></div>
 <div id="div3"></div>
 <div id="output" class="out">
@@ -22,10 +22,10 @@ var jsonarray = JSON.stringify(users);
 var jsonobject = jQuery.parseJSON(jsonarray);
 var count = Object.keys(jsonobject).length;
 //console.log(test);
-document.getElementById("demo").innerHTML = jsonarray;
-document.getElementById("count").innerHTML = count;
+//document.getElementById("demo").innerHTML = jsonarray;
+//document.getElementById("count").innerHTML = count;
 
-document.getElementById("test").innerHTML = jsonobject[1].id;
+//document.getElementById("test").innerHTML = jsonobject[1].id;
 
 
 var div1 = document.getElementById("div1");
@@ -47,6 +47,7 @@ function refactorHomework(homeworkString){
 
         var homeworkDateCreate = document.createElement("div");
         var monthCreated = document.createElement("div");
+        var editbutton = document.createElement("button");
 
        // homeworkdiv.innerHTML="Homework list";
         testjak.innerHTML = jsonobject[0].subjectid;
@@ -62,22 +63,27 @@ function refactorHomework(homeworkString){
 
         iddiv.setAttribute("class","testname");
         homeworkdiv.className="bigdiv";
+        homeworkDiv.id="bigdiv";
         // contentdiv.innerHTML="Description";
         div3.style.color="blue";
-
+        editbutton.innerText="testing button";
+        editbutton.name="testing button";
+        editbutton.id="jquery";
         homeworkdiv.appendChild(br);
         homeworkdiv.appendChild(iddiv);
         homeworkdiv.appendChild(contentdiv);
         homeworkdiv.appendChild(homeworkDateCreate);
         homeworkdiv.appendChild(monthCreated);
+        homeworkdiv.appendChild(editbutton);
 
 
 
 
         switch (a) {
             case 0:
-                monthCreated.innerHTML="January";
+                monthCreated.innerHTML=" Month created is January";
                 monthCreated.style.color="red";
+
                 var jan = document.getElementById("jan");
                 jan.appendChild(homeworkdiv);
                 break;
@@ -95,9 +101,13 @@ function refactorHomework(homeworkString){
                 april.appendChild(homeworkdiv);
                 break;
             case 4:
+               // var borderdiv = document.createElement("div");
+              //  borderdiv.setAttribute('class','border');
 
                 monthCreated.innerHTML = "month created is on May";
                 var may = document.getElementById("may");
+               // may.appendChild(borderdiv);
+                homeworkdiv.setAttribute('class','border')
                 may.appendChild(homeworkdiv);
                 break;
             case 5:
@@ -162,9 +172,9 @@ function refactorHomework(homeworkString){
 <div class="container-fluid">
     <div class="row border border-dark border-bottom-0 rounded m-2 mb-4 pb-4">
         <div class="col-md-6">
-            <div id="jan">
+            <div class="border-info" id="jan">
 
-            <h3 class=" pt-3 pb-3">January</h3>
+            <h3 id="januaryh3" class=" pt-3 pb-3">January</h3>
             <a>test</a>
             </div>
 
