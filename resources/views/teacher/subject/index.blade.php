@@ -30,7 +30,7 @@
 
 
 
-        <button type="button" class="button btn btn-outline-info" data-toggle="modal" data-target="#insert-homework" >
+        <button type="button" id="addhomework" class="button btn btn-outline-info" data-toggle="modal" data-target="#insert-homework" >
             Add new homework
         </button>
         <button type="button" class="btn btn-info" onclick="" id="editposts"> Toggle edit posts</button>
@@ -106,13 +106,39 @@
 
     <script>
 
-        $(document).ready(function () {
-            $("#editposts").click(function (){
-                $(this).hide();
+        //basic jquery,
+
+
+        //document ready event is to prevent any jquery code from running before the document is finished loading or ready
+        //is like we want this code to execute after all the page have been load up.
+        //1.Define like $(. for class element, # for id element name)
+        //2.jquery action on what to do to that defining element of selector
+        //3. jquery event to be fire up
+        //shortcut to $(document).ready(function(){
+        $(function () {
+            $(".bigdiv").click(function (){
+                $("#addhomework").hide();
+               //$(this).hide();
+                alert("you have been click this button");
             });
+            $("#addhomework").hover(function () {
+                $(this).css("background-color", "yellow");
+            }, function(){
+                $(this).css("background-color", "pink");
+
+            })
 
         });
+        $(document).ready(function () {
+           // $('bigdiv')
+
+        })
+
+
 
     </script>
 
 @endsection
+
+
+// testing one two three

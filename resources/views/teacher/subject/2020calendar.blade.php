@@ -172,7 +172,7 @@ function refactorHomework(homeworkString){
 <div class="container-fluid">
     <div class="row border border-dark border-bottom-0 rounded m-2 mb-4 pb-4">
         <div class="col-md-6">
-            <div class="border-info" id="jan">
+            <div class="border-info testing" id="jan">
 
             <h3 id="januaryh3" class=" pt-3 pb-3">January</h3>
             <a>test</a>
