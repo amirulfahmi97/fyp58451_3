@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class SubjectFile extends Model
 {
     protected $table ='subject_files';
-    protected $fillable = ['teacherID','subjectName','subjectYear'];
+    protected $fillable = ['teacherID','subjectCode','subjectName','subjectYear'];
 
 
 
@@ -15,6 +15,6 @@ class SubjectFile extends Model
 
     }
     public function homeworkfiles(){
-        return $this->belongsToMany('App\HomeworkFile');
+        return $this->hasOne('App\HomeworkFile');
     }
 }

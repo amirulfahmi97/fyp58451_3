@@ -25,7 +25,7 @@ class InsertIntoSeperateTable
             $post->user_age = $usertype->user_age;
             $post->user_dp = $usertype->user_dp;
             $post->user_phone=$usertype->user_phone;
-            $post->user_address= $usertype->address;
+            $post->user_address= $usertype->address.$usertype->address2;
             $post->user_email= $usertype->user_email;
             //$post->
             $post->save();

@@ -15,13 +15,18 @@ class CreateHomeworkFilesTable extends Migration
     {
         Schema::create('homework_files', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('subjectid');
             $table->string('homeworkType');
             $table->string('homeworkDesc');
             $table->time('dateline');
             $table->string('new_date')->nullable();
             $table->string('fileDir')->nullable();
             $table->timestamps();
+            $table->foreign('subjectid')->references('id')->on('subject_files')
+
+                ->onDelete('cascade');
         });
+
     }
 
     /**

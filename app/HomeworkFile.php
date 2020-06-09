@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class HomeworkFile extends Model
 {
+    protected $table = 'homework_files';
+    protected $fillable = ['subjectid','homeworkType','homeworkDesc','duedate_date','duedate_time','new_date','fileDir','submission'];
 
 
-
-public function subjectfiles(){
-    return $this->belongsToMany('App\SubjectFile');
+public function subjectfile(){
+    return $this->hasOne('App\SubjectFile');
 }
 
 }
