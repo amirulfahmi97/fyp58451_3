@@ -16,7 +16,7 @@
     <div id="page-content-wrapper">
 
 
-        <div class="container mt-3">
+        <div class="container mt-3 ">
 
             <button class="btn btn-outline-secondary" onclick="enableinput()"> Update Profile</button>
             <button class="btn btn-outline-secondary"> Update Profile Photo</button>

@@ -31,9 +31,15 @@ Route::resource('/admin','AdminController')->middleware('is_admin');
 
 Route::post('globalogout','GlobalLoginController@globallogout')->name('globallogout');
 Route::patch('username/{user_id}','TeacherController@updateusername')->name('updateusername')->middleware('is_teacher');
+
 Route::prefix('teacher')->group(function () {
    Route::get('profile/{user_id}','TeacherController@profile')->name('teacherprofile')->middleware('is_teacher');
    Route::patch('update/{user_id}','TeacherController@updateprofile')->name('updateprofile')->middleware('is_teacher');
    Route::patch('inserthw/{id}','SubjectController@insertHomework')->name('inserthw')->middleware('is_teacher');
+
+});
+
+Route::prefix('parent')->group(function (){
+Route::get('profile/{user_id}','ParentController@profile')->name('parentprofile')->middleware('is_parent');
 
 });
