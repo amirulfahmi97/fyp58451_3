@@ -1,5 +1,22 @@
 
-    <!--HEADER -->
+<!DOCTYPE html>
+
+<html lang="en"  ng-app="FYP58451" >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Manage Profile</title>
+            <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'>
+
+    <link rel="stylesheet" href="http://fyp58451.test/css/app.css">
+    <link rel="stylesheet" href="http://fyp58451.test/js/app.js">
+
+
+    </head>
+    <body>
+          <div class="d-flex" id="wrapper">
+   <!--HEADER -->
     <div class="bg-light border-right bg-dark mr-2 pr-2 pt-5" id="sidebar-wrapper">
         <!--<div class="sidebar-heading">Start Bootstrap </div>
             -->
@@ -28,3 +45,30 @@
     <!--HEADER -->
 
     <!-- /#sidebar-wrapper -->
+   <!-- Page Content -->
+   <div id="page-content-wrapper">
+       <!-- pput content between here-->
+
+
+       </div>
+       </div>
+       <!-- until here -->
+
+   <!-- /#page-content-wrapper -->
+
+
+
+
+   
+
+             <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+<div class="container text-center" >
+
+<span class="text-muted">Sekolah Kebangsaan Bangsar</span>
+</div>
+</footer>
+
+
+    </body>
+
+</html>

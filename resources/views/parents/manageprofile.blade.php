@@ -8,61 +8,42 @@
 
 @endsection
 @section('content')
-   @include('parents.layout.header')
-   <!-- Page Content -->
-   <div id="page-content-wrapper">
-       <!-- pput content between here-->
+         <div class="d-flex " id="wrapper">
+         @include('parents.layout.header')
+
+        <!-- Page Content -->
+        <div class="mt-lg-4 ml-lg-4 " id="page-content-wrapper">
+        <!-- pput content between here-->
+            <h2> Manage profile</h2>
+            <div class=" row ml-lg-3">
+                <form>
+                    <div class="form-group">
+                        <label for="fname">Guardian Name</label>
+                        <input type="text" class=" new-form-control-sm" name="fname" id="fname" placeholder="">
+                    </div>
+                    <div class="form-group ">
+                        <label for="age">Age</label>
+                        <input type="text" class="form-control form-control-sm " style="width: 50px" name="age" id="age" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label> Identification Number</label>
+                        <input type="text" class="form-control form-control-sm" name="icnumber" id="icnumber" >
+                    </div>
+                    <div class="form-group">
+                        <label> Address</label>
+
+                    </div>
+
+                </form>
+            </div>
 
 
-
-       <div class="container mt-3 bg-info">
-
-
-
-   <h2>Manage your profile here</h2>
-           <button class="btn btn-outline-secondary" onclick="#"> Update Profile</button>
-
-           <div class="col-xl-8 shadow mt5">
-            <!-- FLOATING RIGHT-->
-
-            <!-- /FLOATING RIGHT-->
-
-
-            <!--FLOATING LEFT -->
-            <br>
-             <form action="#" method="post">
-       {{csrf_field()}}
-       @method('PATCH')
-      <div class="form-group">
-       <label for="fname">Father name:</label>
-       <input type="fname" class="form-control" placeholder="Enter Father name " id="fname">
-       </div>
-
-       <div class="form-group">
-           <label for="pwd">Password:</label>
-           <input type="password" class="form-control" placeholder="Enter password" id="pwd">
-       </div>
-       <div class="form-group form-check">
-           <label class="form-check-label">
-               <input class="form-check-input" type="checkbox"> Remember me
-           </label>
-       </div>
-       <button type="submit" class="btn btn-primary">Submit</button>
-
-   </form>
-
-            <!-- /FLOATING LEFT -->
+             </div>
+        <!-- until here -->
        </div>
        </div>
-       <!-- until here -->
 
-   </div>
-   </div>
-   <!-- /#page-content-wrapper -->
-
-
-
-
+        <!-- /#page-content-wrapper -->
    @if (\Session::has('message'))
        <div class="alert alert-success">
            <ul>

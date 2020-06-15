@@ -73523,6 +73523,19 @@ function changeUsername() {
 }
 
 $('.modal');
+var app = angular.module('FYP58451', [], ['$httpProvider', function ($httpProvider) {
+  $httpProvider.defaults.headers.post['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content');
+}]);
+app.controller('AdminController', ['$scope', '$http', function ($scope, $http) {}]);
+$scope.tasks = [];
+
+$scope.loadTask = function () {
+  $http.get('/admin/controluser').then(function success(e) {
+    $scope.tasks = e.data.tasks;
+  });
+};
+
+$scope.loadTask();
 
 /***/ }),
 
